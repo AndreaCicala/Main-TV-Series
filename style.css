@@ -1,0 +1,19 @@
+
+body{
+    background-color: #1c1919;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.main-header{
+    width: 100%;
+    background: linear-gradient(rgb(10, 10, 10), #1c1919);
+}
+
+.homepage{
+    text-decoration: none;
+    color: white;
+}
+
+.fa-search{
+color: white;
+}
