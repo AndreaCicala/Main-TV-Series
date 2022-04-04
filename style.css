@@ -25,9 +25,42 @@ color: white;
 }
 
 .searchInp{
-    background-color: red;
+    background-color: #000;
     border: 1px ridge ;
     padding: 4px
+}
+
+.top-ratedh2{
+    color: white;
+    margin-left: 10px;
+    margin-top: 60px;
+    margin-bottom: -40px;
+    font-weight: 100;
+    font-size:20px;
+}
+
+.top-rated-series{
+    display: flex;
+    flex-direction: row ;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 550px;
     
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex: 1 1 0px;
+    transition: transform 500ms;
+    width: 200px;
+    height: 200px;
+    padding: 4px;
+}
+  
+.top-rated-series .card:focus,
+.top-rated-series .card:hover {
+    transform: scale(1.5);
+    z-index: 1;
 }
 
