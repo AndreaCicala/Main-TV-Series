@@ -19,6 +19,8 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    z-index: 9999;
 }
 
 .homepage{
@@ -43,13 +45,37 @@ body{
     color: white;
 }
 
-.popular-seriesh2{
+.titleHero{
+    color: white;
+    position: absolute;
+    top: 80px;
+    left: 28px;
+    font-size: 50px;
+    font-weight: 600;
+    -webkit-text-stroke: 2px black;
+}
+
+.divHero{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 8px 8px #1c1919 inset;
+}
+
+.divBlurred{
+    width: 100%;
+    height: 100px;
+    background-color: red;
+}
+
+.popular-seriesh2 {
     color: white;
     margin-left: 35px;
-    margin-top: 60px;
+    margin-top: -218px;
     margin-bottom: -120px;
-    font-weight: 400;
-    font-size:35px;
+    font-weight: 600;
+    font-size: 35px;
+    text-shadow: 0px 0px 10px black;
+    -webkit-text-stroke: 2px black
 }
 
 .popular-series {
@@ -112,8 +138,9 @@ body{
     margin-left: 35px;
     margin-top: -24px;
     margin-bottom: -120px;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 35px;
+    -webkit-text-stroke: 2px black
 }
 
 .top-rated-series{

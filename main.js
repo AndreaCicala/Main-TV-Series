@@ -79,7 +79,7 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average) =>{
 
     cardTitle.textContent = title;
     cardDiv.setAttribute("id", id);
-    cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
+    cardPoster.src = "https://image.tmdb.org/t/p/original" + poster_path;
     cardVote.textContent = "Rating: " + vote_average + "/10";
 
     cardDiv.append(cardTitle, cardPoster, cardVote);
