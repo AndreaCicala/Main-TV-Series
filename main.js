@@ -1,46 +1,104 @@
-import {getTopRatedShows} from './utility.js';
+import {getPopularShows, getTopRatedTv} from './utility.js';
 
-
-const topRatedTV = (title, tagline, poster_path, release_date, genres, id) => {
+//Input Search expand
+const q = (selector) => document.querySelector(selector);
+    q(".fa-search").addEventListener("click", () => {
+        const searchInput = q(".searchInp");
+        (searchInput.setAttribute("type", "text"));
+});
+//
+const createPopularShows = (title, poster_path, genre_id, id, vote_average) => {
+    const searchInput = document.querySelector("#searchBox");
     const cardDiv = document.createElement("div");
     const cardTitle =  document.createElement("h3");
-    const genreHeadTitle =  document.createElement("h4");
-    const cardTagline =  document.createElement("p");
     const cardPoster =  document.createElement("img");
-    const cardDate =  document.createElement("p");
-    const cardGenres =  document.createElement("p");
-
+    const cardVote =  document.createElement("p");
+    
     cardDiv.classList.add("card");
     cardTitle.classList.add("cardTitle");
-    genreHeadTitle.classList.add("genreTitle");
-    cardTagline.classList.add("cardOverview");
     cardPoster.classList.add("cardImg");
-    cardDate.classList.add("cardDate");
-    cardGenres.classList.add("cardGenres");
+    cardVote.classList.add("seriesVote");
 
-   // cardTitle.textContent = title;
-  //  cardTagline.textContent = tagline;
-    genreHeadTitle.textContent = "Top Rated TV Shows"
+    cardTitle.textContent = title;
+    cardDiv.setAttribute("id", id);
     cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
-    //cardDate.textContent =  release_date;
-   // cardGenres.textContent =  genres;
+    cardVote.textContent = "Rating: " + vote_average + "/10";
 
-    cardDiv.append(cardTitle, cardTagline, cardPoster, cardDate, cardGenres);
-    document.querySelector(".top-rated-series").appendChild(cardDiv)
+    cardDiv.append(cardTitle, cardPoster, cardVote);
+    document.querySelector(".popular-series").appendChild(cardDiv)
+
+//ITEMS VISIBILITY ON MOUSE OVER
+    cardDiv.addEventListener("mouseover", () => {
+        cardTitle.style.visibility = "visible";
+        cardVote.style.visibility = "visible";
+    cardDiv.addEventListener("mouseleave", () => {
+        cardTitle.style.visibility = "hidden";
+        cardVote.style.visibility = "hidden";        
+    })    
+ }); 
+//LEFT POSITION OF THE FIRST CARD
+    cardDiv.addEventListener("mouseover", () => {
+        if (id === 52814){
+            cardDiv.style.left = "40px"
+        }
+        cardDiv.addEventListener("mouseleave", () => {
+            if (id === 52814){
+                cardDiv.style.left = "0"
+            }
+        })
+    });
+//
+    let newArr = [];
+    newArr.push(title, id);
     
-};
+    searchBox.addEventListener("keyup", () => {
+       
+        
+    })
+        
+}
 
+const createTopRatedShows = (title, poster_path, genre_id, id, vote_average) =>{
+    const searchInput = document.querySelector("#searchBox");
+    const cardDiv = document.createElement("div");
+    const cardTitle =  document.createElement("h3");
+    const cardPoster =  document.createElement("img");
+    const cardVote =  document.createElement("p");
+    
+    cardDiv.classList.add("card2");
+    cardTitle.classList.add("cardTitle2");
+    cardPoster.classList.add("cardImg2");
+    cardVote.classList.add("seriesVote2");
 
+    cardTitle.textContent = title;
+    cardDiv.setAttribute("id", id);
+    cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
+    cardVote.textContent = "Rating: " + vote_average + "/10";
 
+    cardDiv.append(cardTitle, cardPoster, cardVote);
+    document.querySelector(".top-rated-series").appendChild(cardDiv)
 
-//Input Search
-const q = (selector) => document.querySelector(selector);
-q(".fa-search").addEventListener("click", () => {
-    const searchInput = q(".searchInp");
-    (searchInput.setAttribute("type", "text"));
-   
-});
+//ITEMS VISIBILITY ON MOUSE OVER
+    cardDiv.addEventListener("mouseover", () => {
+        cardTitle.style.visibility = "visible";
+        cardVote.style.visibility = "visible";
+    cardDiv.addEventListener("mouseleave", () => {
+        cardTitle.style.visibility = "hidden";
+        cardVote.style.visibility = "hidden";        
+    })    
+ }); 
+//LEFT POSITION OF THE FIRST CARD
+    cardDiv.addEventListener("mouseover", () => {
+        if (id === 52814){
+            cardDiv.style.left = "40px"
+        }
+        cardDiv.addEventListener("mouseleave", () => {
+            if (id === 52814){
+                cardDiv.style.left = "0"
+            }
+        })
+    });
 
+}
 
-
-export {topRatedTV}
+export {createPopularShows, createTopRatedShows}

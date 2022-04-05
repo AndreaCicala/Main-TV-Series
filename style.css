@@ -1,18 +1,24 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body{
     background-color: #1c1919;
-    font-family: 'Roboto Mono', monospace;
     font-size: 18px;
 }
 
 .main-header{
     width: 100%;
     background: linear-gradient(rgb(10, 10, 10), #1c1919);
+    padding-top: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding-top: 15px;
 }
 
 .homepage{
@@ -20,47 +26,140 @@ body{
     color: white;  
 }
 
+.logoImg{
+    margin-right: 20px;
+}
+
 .fa-search{
-color: white;
+    color: white;
 }
 
 .searchInp{
     background-color: #000;
     border: 1px ridge ;
-    padding: 4px
-}
-
-.top-ratedh2{
+    padding: 4px;
     color: white;
-    margin-left: 10px;
-    margin-top: 60px;
-    margin-bottom: -40px;
-    font-weight: 100;
-    font-size:20px;
 }
 
-.top-rated-series{
+.popular-seriesh2{
+    color: white;
+    margin-left: 35px;
+    margin-top: 60px;
+    margin-bottom: -120px;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.popular-series{
     display: flex;
-    flex-direction: row ;
-    margin-top: 50px;
-    margin-left: 10px;
-    margin-right: 550px;
-    
+    flex-flow: row;
+    gap: 5px;
+    margin-top: 96px;
+    margin-left: 14px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 96vw;
+    height: 360px;
+    align-items: flex-start;
+    padding: 15px;
 }
 
 .card {
     position: relative;
     display: flex;
-    flex: 1 1 0px;
-    transition: transform 500ms;
+    transition: transform 800ms;
     width: 200px;
-    height: 200px;
+    height: 195px;
     padding: 4px;
+    margin-top: 35px;
 }
   
-.top-rated-series .card:focus,
-.top-rated-series .card:hover {
+.cardImg{
+    border-radius: 2px;
+}
+
+.popular-series .card:focus,
+.popular-series .card:hover {
     transform: scale(1.5);
+    transform: skewX(10);
     z-index: 1;
 }
 
+.cardTitle{
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 195px;
+    visibility: hidden;
+}
+
+.seriesVote{
+    position: absolute;
+    left: 4px;
+    top: 229px;
+    color: white;
+    font-size: 9px;
+    visibility: hidden;
+}
+
+
+.top-rated-seriesh2{
+    color: white;
+    margin-left: 35px;
+    margin-top: -24px;
+    margin-bottom: -120px;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.top-rated-series{
+    display: flex;
+    flex-flow: row;
+    gap: 5px;
+    margin-top: 96px;
+    margin-left: 14px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 96vw;
+    height: 360px;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.card2 {
+    position: relative;
+    display: flex;
+    transition: transform 800ms;
+    width: 200px;
+    height: 195px;
+    padding: 4px;
+    margin-top: 35px;
+}
+  
+.cardImg2{
+    border-radius: 2px;
+}
+
+.top-rated-series .card2:focus,
+.top-rated-series .card2:hover {
+    transform: scale(1.5);
+    transform: skewX(10);
+    z-index: 1;
+}
+
+.cardTitle2{
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 195px;
+    visibility: hidden;
+}
+
+.seriesVote2{
+    position: absolute;
+    left: 4px;
+    top: 229px;
+    color: white;
+    font-size: 9px;
+    visibility: hidden;
+}
