@@ -8,7 +8,8 @@ const q = (selector) => document.querySelector(selector);
 });
 //
 const createPopularShows = (title, poster_path, genre_id, id, vote_average) => {
-    const searchInput = document.querySelector("#searchBox");
+    const searchInput = q("#searchBox");
+    const rightButton = q("#slide-right");
     const cardDiv = document.createElement("div");
     const cardTitle =  document.createElement("h3");
     const cardPoster =  document.createElement("img");
@@ -48,14 +49,20 @@ const createPopularShows = (title, poster_path, genre_id, id, vote_average) => {
         })
     });
 //
-    let newArr = [];
-    newArr.push(title, id);
-    
-    searchBox.addEventListener("keyup", () => {
-       
-        
+    // let newArr = [];
+    // newArr.push(title, id);
+    // searchBox.addEventListener("keyup", () => {  
+    // })
+//LEFT AND RIGHT SCROLL\\
+    q("#slide-right2").addEventListener("click", () => {
+        q(".top-rated-series").scrollLeft += 500;
     })
-        
+    q("#slide-left2").addEventListener("click", () => {
+        q(".top-rated-series").scrollLeft += -500;
+    })
+    q("#slide-right2").addEventListener("click", () => {
+        q("#slide-left2").style.visibility = "visible";
+    })
 }
 
 const createTopRatedShows = (title, poster_path, genre_id, id, vote_average) =>{
@@ -89,16 +96,26 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average) =>{
  }); 
 //LEFT POSITION OF THE FIRST CARD
     cardDiv.addEventListener("mouseover", () => {
-        if (id === 52814){
+        if (id === 130392){
             cardDiv.style.left = "40px"
         }
         cardDiv.addEventListener("mouseleave", () => {
-            if (id === 52814){
+            if (id === 130392){
                 cardDiv.style.left = "0"
             }
         })
     });
-
+//LEFT AND RIGHT SCROLL\\
+    q("#slide-right").addEventListener("click", () => {
+        q(".popular-series").scrollLeft += 500;
+    })
+    q("#slide-left").addEventListener("click", () => {
+        q(".popular-series").scrollLeft += -500;
+    });
+    q("#slide-right").addEventListener("click", () => {
+        q("#slide-left").style.visibility = "visible";
+    })
+    
 }
 
 export {createPopularShows, createTopRatedShows}

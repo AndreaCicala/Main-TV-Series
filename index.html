@@ -14,18 +14,36 @@
 <body>
     <div class="main-header">
         <a href="https://imgbb.com/"><img src="https://i.ibb.co/y0VVjY0/Logo-animato-500x500-px-2.png" class="logoImg" alt="Main Series Tv Logo" width="250px" height="50px" ></a>
-        
         <i class="fas fa-search">
            <input type="hidden" name="search" id="searchBox" class="searchInp" placeholder="Titolo, Genere, Anno">
         </i>
     </div>
+    <div class="divhero">
+
+    </div>
         <h2 class="popular-seriesh2">Popular TV Shows</h2>
-        <div class="popular-series"></div>
+        <div class="popular-series">
+            <button type="button" class="slides" id="slide-left">
+                <i class="fa-solid fa-angle-left" id="fa-left"></i>
+            </button>
+            <button type="button" class="slides" id="slide-right">
+                <i class="fa-solid fa-angle-right" id="fa-right"></i>
+            </button>
+        </div>
         <h2 class="top-rated-seriesh2">Top Rated TV Shows</h2>
-        <div class="top-rated-series"></div>
-      
+        <div class="top-rated-series">
+            <button type="button" class="slides2" id="slide-left2">
+                <i class="fa-solid fa-angle-left" id="fa-left2"></i>
+            </button>
+            <button type="button" class="slides2" id="slide-right2">
+                <i class="fa-solid fa-angle-right" id="fa-right2"></i>
+            </button>
+        </div>
         
-    <script src='main.js' type="module"></script>  
+        
+    <script src='./main.js' type="module"></script>  
+    <script src='./utility.js' type="module"></script>  
+    <script src='./hero.js' type="module"></script>  
     <script src="https://kit.fontawesome.com/ac913da120.js" crossorigin="anonymous"></script>
 </body>
 </html>

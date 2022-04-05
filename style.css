@@ -28,6 +28,8 @@ body{
 
 .logoImg{
     margin-right: 20px;
+    width: 300px;
+    height: 70px;
 }
 
 .fa-search{
@@ -46,22 +48,23 @@ body{
     margin-left: 35px;
     margin-top: 60px;
     margin-bottom: -120px;
-    font-weight: 100;
-    font-size: 20px;
+    font-weight: 400;
+    font-size:35px;
 }
 
-.popular-series{
+.popular-series {
     display: flex;
     flex-flow: row;
     gap: 5px;
-    margin-top: 96px;
-    margin-left: 14px;
+    margin-top: 125px;
+    margin-left: -52px;
     margin-right: 10px;
-    overflow: hidden;
-    width: 96vw;
-    height: 360px;
+    width: 100vw;
+    height: 464px;
     align-items: flex-start;
     padding: 15px;
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 .card {
@@ -69,9 +72,9 @@ body{
     display: flex;
     transition: transform 800ms;
     width: 200px;
-    height: 195px;
-    padding: 4px;
-    margin-top: 35px;
+    height: 275px;
+    padding: 5px;
+    margin-top: 45px;
 }
   
 .cardImg{
@@ -89,14 +92,15 @@ body{
     position: absolute;
     color: white;
     font-size: 12px;
-    top: 195px;
+    top: 270px;
+    left: 8px;
     visibility: hidden;
 }
 
 .seriesVote{
     position: absolute;
-    left: 4px;
-    top: 229px;
+    left: 7px;
+    top: 299px;
     color: white;
     font-size: 9px;
     visibility: hidden;
@@ -108,8 +112,8 @@ body{
     margin-left: 35px;
     margin-top: -24px;
     margin-bottom: -120px;
-    font-weight: 100;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 35px;
 }
 
 .top-rated-series{
@@ -117,13 +121,14 @@ body{
     flex-flow: row;
     gap: 5px;
     margin-top: 96px;
-    margin-left: 14px;
+    margin-left: -52px;
     margin-right: 10px;
     overflow: hidden;
-    width: 96vw;
-    height: 360px;
+    width: 100vw;
+    height: 464px;
     align-items: flex-start;
     padding: 15px;
+    scroll-behavior: smooth;
 }
 
 .card2 {
@@ -131,9 +136,9 @@ body{
     display: flex;
     transition: transform 800ms;
     width: 200px;
-    height: 195px;
-    padding: 4px;
-    margin-top: 35px;
+    height: 275px;
+    padding: 5px;
+    margin-top: 45px;
 }
   
 .cardImg2{
@@ -151,15 +156,106 @@ body{
     position: absolute;
     color: white;
     font-size: 12px;
-    top: 195px;
+    top: 270px;
+    left: 8px;
     visibility: hidden;
 }
 
 .seriesVote2{
     position: absolute;
-    left: 4px;
-    top: 229px;
+    left: 8px;
+    top: 300px;
     color: white;
     font-size: 9px;
     visibility: hidden;
+}
+
+.slides {
+    background: transparent;
+    width: 0px;
+    height: 163px;
+    position: sticky;
+    top: 115px;
+    left: 79px;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 500ms;
+    font-size: 50px;
+    text-align: center;
+}
+
+.slides:hover{
+    transform: scale(1.2);
+}
+
+#slide-right {
+    position: sticky;
+    left: 99vw;
+    z-index: 10;
+    margin-right: 4px;
+}
+
+#slide-left{
+    z-index: 10;
+    visibility: hidden;
+}
+
+#fa-left{
+    position: absolute;
+    left: 3px;
+    top: 58px;
+}
+
+#fa-right{
+    position: absolute;
+    top: 58px;
+    right: 3px;
+}
+
+.slides2 {
+    background: transparent;
+    width: 0px;
+    height: 163px;
+    position: sticky;
+    top: 115px;
+    left: 79px;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 500ms;
+    font-size: 50px;
+    text-align: center;
+}
+
+.slides2:hover{
+    transform: scale(1.2);
+}
+
+#slide-right2 {
+    position: sticky;
+    left: 99vw;
+    z-index: 10;
+    margin-right: 4px;
+}
+
+#slide-left2{
+    z-index: 10;
+    visibility: hidden;
+}
+
+#fa-left2{
+    position: absolute;
+    left: 3px;
+    top: 58px;
+}
+
+#fa-right2{
+    position: absolute;
+    top: 58px;
+    right: 3px;
 }
