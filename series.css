@@ -1,11 +1,21 @@
 *{
-    background-color: #1c191900;
-    
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
 }
 
-body{
-    width: 100px;
-    height: 100px;
+*::-webkit-scrollbar{
+    display: none;
+}
+
+button{
+    background-color: rgb(255, 255, 255);
+    width: 130px;
+    height: 35px;
+    border-radius: 5px;
+    position: absolute;
+    top: 525px;
+    left: 340px;
+    border: none;
 }
 
 .main-header{
@@ -18,3 +28,101 @@ body{
     z-index: 9998;
     align-items: center;
 }
+
+.navigation{
+    list-style: none;
+    display: flex;
+    padding: 5px;
+    margin: 20px;
+}
+
+.navigation li a{
+    color: white;
+    text-decoration: none;
+    margin: 20px 20px 10px 10px;
+    flex-direction: column-reverse;
+    align-content: space-around;
+    font-size: 15px;
+}
+
+.detail-div{
+    display: flex;
+    flex-flow: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.detail-img{
+    width: 45%;
+    height: 65%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    border-radius: 8px;
+}
+
+.divHero{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(6px);
+    z-index: -5;
+}
+
+.structure-div{
+    position: fixed;
+    width: 45%;
+    height: 80%;
+    background-color: #1c1919;
+    top: 63%;
+    left: 27.5%;
+}
+
+.play-button{
+    position: fixed;
+    top: 58%;
+    left: 30%;
+    transition: all 0.5s ease-out;
+}
+
+.play-button:hover{
+    transform: scale(1.2);
+}
+
+.detail-name{
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 28%;
+    font-size: 30px;
+    z-index: 1;
+    -webkit-text-stroke: 1.2px black
+}
+
+.overview{
+    width: 50%;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 18px;
+    margin-top: 24px;
+}
+
+.average-vote{
+    position: fixed;
+    left: 65%;
+    top: 88.5%;
+    color: rgb(123, 185, 255);
+    font-weight: 600;
+    text-align: right;
+    margin-top: -110px;
+}
+
+.ratings{
+    color: #606060;
+    margin-right: 31px;
+    margin-bottom: -19px;
+    margin-top: -110px;
+}
+

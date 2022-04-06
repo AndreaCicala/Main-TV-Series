@@ -38,6 +38,7 @@ const getTopRatedTv = async () => {
   }
 };
 
+//FETCH CALL FOR TV ID'S
 const getTvDetails = async (id) => {
   const res = await fetch(
     getURL(`tv/${id}`),
@@ -52,7 +53,23 @@ const getTvDetails = async (id) => {
   if (res.status >= 200 && res.status <= 299) {
     return await res.json();
   }
+
 };
 
+//FETCH CALL FOR BACKGROUND IMAGE
+const getSeriesImages = async () => {
+  const res = await fetch(
+    "https://api.themoviedb.org/3/tv/1429?api_key=f7eae006391996939f7a8ef3e656c4d2&language=en-US&page=1",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (res.status >= 200 && res.status <= 299) {
+    return await res.json();
+  }
+};
 
-export { getPopularShows, getTopRatedTv, getTvDetails};
+export { getPopularShows, getTopRatedTv, getTvDetails, getSeriesImages};
