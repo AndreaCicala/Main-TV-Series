@@ -1,121 +1,141 @@
-import {getPopularShows, getTopRatedTv} from './utility.js';
+import { getPopularShows, getTopRatedTv } from "./utility.js";
+const q = (selector) => document.querySelector(selector);
 
 //Input Search expand
-const q = (selector) => document.querySelector(selector);
-    q(".fa-search").addEventListener("click", () => {
-        const searchInput = q(".searchInp");
-        (searchInput.setAttribute("type", "text"));
+let searchIcon = q(".search-box__icon");
+let searchBox = q(".search-box");
+searchIcon.addEventListener("click", () => {
+  searchBox.classList.toggle("active");
 });
 //
 const createPopularShows = (title, poster_path, genre_id, id, vote_average) => {
-    const searchInput = q("#searchBox");
-    const rightButton = q("#slide-right");
-    const cardDiv = document.createElement("div");
-    const cardTitle =  document.createElement("h3");
-    const cardPoster =  document.createElement("img");
-    const cardVote =  document.createElement("p");
-    
-    cardDiv.classList.add("card");
-    cardTitle.classList.add("cardTitle");
-    cardPoster.classList.add("cardImg");
-    cardVote.classList.add("seriesVote");
+  const searchInput = q("#searchBox");
+  const rightButton = q("#slide-right");
+  const cardDiv = document.createElement("div");
+  const cardTitle = document.createElement("h3");
+  const cardPoster = document.createElement("img");
+  const cardVote = document.createElement("p");
 
-    cardTitle.textContent = title;
-    cardDiv.setAttribute("id", id);
-    cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
-    cardVote.textContent = "Rating: " + vote_average + "/10";
+  cardDiv.classList.add("card");
+  cardTitle.classList.add("cardTitle");
+  cardPoster.classList.add("cardImg");
+  cardVote.classList.add("seriesVote");
 
-    cardDiv.append(cardTitle, cardPoster, cardVote);
-    document.querySelector(".popular-series").appendChild(cardDiv)
+  cardTitle.textContent = title;
+  cardDiv.setAttribute("id", id);
+  cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
+  cardVote.textContent = "Rating: " + vote_average + "/10";
 
-//ITEMS VISIBILITY ON MOUSE OVER
-    cardDiv.addEventListener("mouseover", () => {
-        cardTitle.style.visibility = "visible";
-        cardVote.style.visibility = "visible";
+  cardDiv.append(cardTitle, cardPoster, cardVote);
+  document.querySelector(".popular-series").appendChild(cardDiv);
+
+  //ITEMS VISIBILITY ON MOUSE OVER
+  cardDiv.addEventListener("mouseover", () => {
+    cardTitle.style.visibility = "visible";
+    cardVote.style.visibility = "visible";
     cardDiv.addEventListener("mouseleave", () => {
-        cardTitle.style.visibility = "hidden";
-        cardVote.style.visibility = "hidden";        
-    })    
- }); 
-//LEFT POSITION OF THE FIRST CARD
-    cardDiv.addEventListener("mouseover", () => {
-        if (id === 52814){
-            cardDiv.style.left = "40px"
-        }
-        cardDiv.addEventListener("mouseleave", () => {
-            if (id === 52814){
-                cardDiv.style.left = "0"
-            }
-        })
+      cardTitle.style.visibility = "hidden";
+      cardVote.style.visibility = "hidden";
     });
+  });
+  //LEFT POSITION OF THE FIRST CARD
+  cardDiv.addEventListener("mouseover", () => {
+    if (id === 52814) {
+      cardDiv.style.left = "40px";
+    }
+    cardDiv.addEventListener("mouseleave", () => {
+      if (id === 52814) {
+        cardDiv.style.left = "0";
+      }
+    });
+  });
+};
+//CARDS SCROLL BEHAVIOR\\
+const getCardsScroll = () => {
+    const cardWidth = 200;
+    let divPopSeries = q(".popular-series");
+    let numberVisibleCard = Math.floor(divPopSeries.offsetWidth / cardWidth);
+    return numberVisibleCard * cardWidth;
+}
+q("#slide-right").addEventListener("click", () => {
+    q(".popular-series").scrollLeft += getCardsScroll();
+  });
+  q("#slide-left").addEventListener("click", () => {
+    q(".popular-series").scrollLeft += -1 * getCardsScroll();
+  });
+  q("#slide-right").addEventListener("click", () => {
+    q("#slide-left").style.visibility = "visible";
+  });
 //
-    // let newArr = [];
-    // newArr.push(title, id);
-    // searchBox.addEventListener("keyup", () => {  
-    // })
-//LEFT AND RIGHT SCROLL\\
-    q("#slide-right2").addEventListener("click", () => {
-        q(".top-rated-series").scrollLeft += 500;
-    })
-    q("#slide-left2").addEventListener("click", () => {
-        q(".top-rated-series").scrollLeft += -500;
-    })
-    q("#slide-right2").addEventListener("click", () => {
-        q("#slide-left2").style.visibility = "visible";
-    })
-}
+const createTopRatedShows = (
+  title,
+  poster_path,
+  genre_id,
+  id,
+  vote_average
+) => {
+  const searchInput = document.querySelector("#searchBox");
+  const cardDiv = document.createElement("div");
+  const cardTitle = document.createElement("h3");
+  const cardPoster = document.createElement("img");
+  const cardVote = document.createElement("p");
 
-const createTopRatedShows = (title, poster_path, genre_id, id, vote_average) =>{
-    const searchInput = document.querySelector("#searchBox");
-    const cardDiv = document.createElement("div");
-    const cardTitle =  document.createElement("h3");
-    const cardPoster =  document.createElement("img");
-    const cardVote =  document.createElement("p");
-    
-    cardDiv.classList.add("card2");
-    cardTitle.classList.add("cardTitle2");
-    cardPoster.classList.add("cardImg2");
-    cardVote.classList.add("seriesVote2");
+  cardDiv.classList.add("card2");
+  cardTitle.classList.add("cardTitle2");
+  cardPoster.classList.add("cardImg2");
+  cardVote.classList.add("seriesVote2");
 
-    cardTitle.textContent = title;
-    cardDiv.setAttribute("id", id);
-    cardPoster.src = "https://image.tmdb.org/t/p/original" + poster_path;
-    cardVote.textContent = "Rating: " + vote_average + "/10";
+  cardTitle.textContent = title;
+  cardDiv.setAttribute("id", id);
+  cardPoster.src = "https://image.tmdb.org/t/p/original" + poster_path;
+  cardVote.textContent = "Rating: " + vote_average + "/10";
 
-    cardDiv.append(cardTitle, cardPoster, cardVote);
-    document.querySelector(".top-rated-series").appendChild(cardDiv)
+  cardDiv.append(cardTitle, cardPoster, cardVote);
+  document.querySelector(".top-rated-series").appendChild(cardDiv);
 
-//ITEMS VISIBILITY ON MOUSE OVER
-    cardDiv.addEventListener("mouseover", () => {
-        cardTitle.style.visibility = "visible";
-        cardVote.style.visibility = "visible";
+  //ITEMS VISIBILITY ON MOUSE OVER
+  cardDiv.addEventListener("mouseover", () => {
+    cardTitle.style.visibility = "visible";
+    cardVote.style.visibility = "visible";
     cardDiv.addEventListener("mouseleave", () => {
-        cardTitle.style.visibility = "hidden";
-        cardVote.style.visibility = "hidden";        
-    })    
- }); 
-//LEFT POSITION OF THE FIRST CARD
-    cardDiv.addEventListener("mouseover", () => {
-        if (id === 130392){
-            cardDiv.style.left = "40px"
-        }
-        cardDiv.addEventListener("mouseleave", () => {
-            if (id === 130392){
-                cardDiv.style.left = "0"
-            }
-        })
+      cardTitle.style.visibility = "hidden";
+      cardVote.style.visibility = "hidden";
     });
-//LEFT AND RIGHT SCROLL\\
-    q("#slide-right").addEventListener("click", () => {
-        q(".popular-series").scrollLeft += 500;
-    })
-    q("#slide-left").addEventListener("click", () => {
-        q(".popular-series").scrollLeft += -500;
+  });
+  //LEFT POSITION OF THE FIRST CARD
+  cardDiv.addEventListener("mouseover", () => {
+    if (id === 130392) {
+      cardDiv.style.left = "40px";
+    }
+    cardDiv.addEventListener("mouseleave", () => {
+      if (id === 130392) {
+        cardDiv.style.left = "0";
+      }
     });
-    q("#slide-right").addEventListener("click", () => {
-        q("#slide-left").style.visibility = "visible";
-    })
-    
-}
+  });
+};
 
-export {createPopularShows, createTopRatedShows}
+//CARDS SCROLL BEHAVIOUR\\
+q("#slide-right2").addEventListener("click", () => {
+  q(".top-rated-series").scrollLeft += getCardsScroll();
+});
+q("#slide-left2").addEventListener("click", () => {
+  q(".top-rated-series").scrollLeft += -1 * getCardsScroll();
+});
+q("#slide-right2").addEventListener("click", () => {
+  q("#slide-left2").style.visibility = "visible";
+});
+
+//HEADER BEHAVIOUR\\
+let myNav = q(".main-header");
+window.onscroll = function () {
+  "use strict";
+  myNav.scrollTop = 0;
+  if (myNav.scrollTop >= 180 || document.documentElement.scrollTop >= 180) {
+    myNav.classList.add("main-header-scrolled");
+  } else {
+    myNav.classList.remove("main-header-scrolled");
+  }
+};
+
+export { createPopularShows, createTopRatedShows };

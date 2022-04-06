@@ -12,14 +12,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="main-header">
-        <a href="https://imgbb.com/"><img src="https://i.ibb.co/y0VVjY0/Logo-animato-500x500-px-2.png" class="logoImg" alt="Main Series Tv Logo" width="250px" height="50px" ></a>
-        <i class="fas fa-search">
-           <input type="hidden" name="search" id="searchBox" class="searchInp" placeholder="Titolo, Genere, Anno">
-        </i>
+    <div class="main-header" >
+        <a href="https://imgbb.com/"><img src="https://i.ibb.co/y0VVjY0/Logo-animato-500x500-px-2.png" class="logoImg" alt="Main Series Tv Logo" width="250px" height="50px"></a>
+        <ul class="navigation">
+            <li>
+                <a href="#">Main TV Series
+                </a>
+            </li>
+            <li>
+                <a href="#popularTvShows">Popular TV Shows
+                </a>
+            </li>
+            <li>
+                <a href="#topRated">Top Rated TV Shows
+                </a>
+            </li>
+        </ul>
+        <div class="search-box"><i class="fa fa-search search-box__icon"></i>
+            <input class="search-box__input" placeholder="Titolo, anno, genere"/>
+          </div>
     </div>
-    <div class="divhero"></div>
-        <h2 class="popular-seriesh2">Popular TV Shows</h2>
+    <div class="divhero">
+    </div>
+        <h2 class="popular-seriesh2" id="popularTvShows">Popular TV Shows</h2>
         <div class="popular-series">
             <button type="button" class="slides" id="slide-left">
                 <i class="fa-solid fa-angle-left" id="fa-left"></i>
@@ -28,7 +43,7 @@
                 <i class="fa-solid fa-angle-right" id="fa-right"></i>
             </button>
         </div>
-        <h2 class="top-rated-seriesh2">Top Rated TV Shows</h2>
+        <h2 class="top-rated-seriesh2" id="topRated">Top Rated TV Shows</h2>
         <div class="top-rated-series">
             <button type="button" class="slides2" id="slide-left2">
                 <i class="fa-solid fa-angle-left" id="fa-left2"></i>
