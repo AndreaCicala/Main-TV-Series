@@ -17,7 +17,6 @@ const getSeriesImages = async () => {
 };
     
 getSeriesImages().then((resApi) => {
-    console.log(resApi)
   const createHeroImage = () => {
     const imageDiv = document.createElement("img");
     const heroTitle = document.createElement("h2");

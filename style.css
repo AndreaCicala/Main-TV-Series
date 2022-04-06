@@ -21,6 +21,7 @@ body{
 
 .main-header{
     width: 100%;
+    height: 50px;
     background: linear-gradient(rgb(10, 10, 10), #1c191900);
     padding-top: 15px;
     display: flex;
@@ -57,15 +58,14 @@ body{
 .logoImg{
     margin-right: 20px;
     margin-left: 30px;
-    width: 250px;
-    height: 55px;
+    width: 180px;
+    height: 35px;
 }
   
 .search-box {
     position: fixed;
     width: 250px;
-    left: 85%;
-    
+    left: 85%;  
 }
 
 .search-box .search-box__input {
@@ -78,7 +78,6 @@ body{
     color: #fff;
     opacity: 0;
     transition: ease width 0.5s, ease opacity 1s;
-    
 }
 
 .search-box .search-box__icon {
@@ -116,21 +115,21 @@ body{
 }
 
 .blur{
-    width: 100vw;
+    width: 106vw;
     height: 10vh;
     background-color: #1c1919;
     position: absolute;
-    margin-top: -32px;
+    margin-top: -45px;
     margin-left: -12px;
     filter: blur(6px);
 }
-
 
 .popular-seriesh2 {
     color: white;
     margin-left: 35px;
     margin-top: -218px;
-    margin-bottom: -120px;
+    margin-bottom: -145px;
+    padding-bottom: 10px;
     font-weight: 600;
     font-size: 35px;
     text-shadow: 0px 0px 10px black;
@@ -141,14 +140,14 @@ body{
     display: flex;
     flex-flow: row;
     gap: 5px;
-    margin-top: 125px;
+    margin-top: 100px;
     margin-left: -52px;
     margin-right: 10px;
-    width: 100vw;
-    height: 464px;
-    align-items: flex-start;
-    padding: 15px;
     overflow: hidden;
+    width: 100vw;
+    height: 460px;
+    align-items: flex-start;
+    padding: 70px 15px 15px 15px;
 }
 
 .card {
@@ -158,16 +157,17 @@ body{
     width: 200px;
     height: 275px;
     padding: 5px;
-    margin-top: 45px;
+    cursor: pointer;
 }
   
 .cardImg{
     border-radius: 2px;
+    width: 184px;
 }
 
 .popular-series .card:focus,
 .popular-series .card:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
     transform: skewX(10);
     z-index: 1;
 }
@@ -194,25 +194,27 @@ body{
 .top-rated-seriesh2{
     color: white;
     margin-left: 35px;
-    margin-top: -24px;
-    margin-bottom: -120px;
+    margin-top: -60px;
+    margin-bottom: -145px;
+    padding-bottom: 10px;
     font-weight: 600;
     font-size: 35px;
-    -webkit-text-stroke: 2px black
+    text-shadow: 0px 0px 10px black;
+    -webkit-text-stroke: 2px black;
 }
 
 .top-rated-series{
     display: flex;
     flex-flow: row;
     gap: 5px;
-    margin-top: 96px;
+    margin-top: 100px;
     margin-left: -52px;
     margin-right: 10px;
     overflow: hidden;
     width: 100vw;
-    height: 464px;
+    height: 460px;
     align-items: flex-start;
-    padding: 15px;
+    padding: 70px 15px 15px 15px;
     
 }
 
@@ -223,16 +225,16 @@ body{
     width: 200px;
     height: 275px;
     padding: 5px;
-    margin-top: 45px;
 }
   
 .cardImg2{
     border-radius: 2px;
+    width: 184px;
 }
 
 .top-rated-series .card2:focus,
 .top-rated-series .card2:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
     transform: skewX(10);
     z-index: 1;
 }
@@ -259,9 +261,7 @@ body{
     background: transparent;
     width: 0px;
     height: 163px;
-    position: sticky;
-    top: 115px;
-    left: 79px;
+    top: 60px;
     color: white;
     border: none;
     outline: none;
@@ -270,6 +270,7 @@ body{
     transition: transform 500ms;
     font-size: 50px;
     text-align: center;
+    z-index: 10;
 }
 
 .slides:hover{
@@ -279,19 +280,20 @@ body{
 #slide-right {
     position: sticky;
     left: 99vw;
-    z-index: 10;
     margin-right: 4px;
 }
 
 #slide-left{
-    z-index: 10;
+    position: sticky;
+    top: 60px;
+    left: 80px;
     visibility: hidden;
 }
 
 #fa-left{
     position: absolute;
-    left: 3px;
     top: 58px;
+    left: 3px;
 }
 
 #fa-right{
@@ -304,9 +306,7 @@ body{
     background: transparent;
     width: 0px;
     height: 163px;
-    position: sticky;
-    top: 115px;
-    left: 79px;
+    top: 60px;
     color: white;
     border: none;
     outline: none;
@@ -315,6 +315,7 @@ body{
     transition: transform 500ms;
     font-size: 50px;
     text-align: center;
+    z-index: 10;
 }
 
 .slides2:hover{
@@ -324,19 +325,20 @@ body{
 #slide-right2 {
     position: sticky;
     left: 99vw;
-    z-index: 10;
     margin-right: 4px;
 }
 
 #slide-left2{
-    z-index: 10;
+    position: sticky;
+    top: 60px;
+    left: 80px;
     visibility: hidden;
 }
 
 #fa-left2{
     position: absolute;
-    left: 3px;
     top: 58px;
+    left: 3px;
 }
 
 #fa-right2{
@@ -344,3 +346,60 @@ body{
     top: 58px;
     right: 3px;
 }
+
+@media (max-width: 480px) {
+    *{
+        font-size: 2px;
+    }
+
+    .cardImg {
+        width: 100px;
+    }
+
+    .card {
+        height: 150px;
+    }
+
+    .logoImg{
+        display: none;
+    }
+
+    .popular-series{
+        margin-top: 170px;
+        height: auto;
+    }
+
+    .popular-seriesh2{
+        font-size: 25px;
+        margin-top: -139px;
+        margin-bottom: -227px;
+    }
+
+    .titleHero{
+        display: none;
+    }
+
+    .navigation{
+        font-size: 1px;
+        margin: 0;
+    }
+
+    .cardImg2 {
+        width: 100px;
+    }
+
+    .card2 {
+        height: 150px;
+    }
+
+    .top-rated-series{
+        margin-top: 170px;
+        height: auto;
+    }
+
+    .top-rated-seriesh2{
+        font-size: 25px;
+        margin-top: 50px;
+        margin-bottom: -227px;
+    }
+  }
