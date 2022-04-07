@@ -36,7 +36,6 @@ const createPopularShows = (title, poster_path, genre_id, id, vote_average, popu
   cardLink.append(cardPoster, cardTitle, cardVote,)
   cardDiv.append(cardLink);
   document.querySelector(".popular-series").appendChild(cardDiv);
-  
 
   //CARD DETAILS VISIBILITY ON MOUSE OVER
   cardDiv.addEventListener("mouseover", () => {
@@ -97,7 +96,7 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average, pop
   cardDiv.addEventListener("mouseover", () => {
     cardTitle.style.visibility = "visible";
     cardVote.style.visibility = "visible";
-    cardDiv.addEventListener("mouseleave", () => {
+  cardDiv.addEventListener("mouseleave", () => {
       cardTitle.style.visibility = "hidden";
       cardVote.style.visibility = "hidden";
     });
@@ -139,19 +138,16 @@ window.onscroll = function () {
   myNav.scrollTop = 0;
   if (myNav.scrollTop >= 180 || document.documentElement.scrollTop >= 180) {
     myNav.classList.add("main-header-scrolled");
-  } else {
+  } else if (myNav.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+    myNav.classList.add("main-header-scrolled");
+  }else {
     myNav.classList.remove("main-header-scrolled");
   }
 };
 
 // GENERATE HTML
-
-
-
-
 getPopularShows().then((resApi) => {
-    let entries = Object.entries(resApi)[1];
-    entries[1].map((elem) => {
+  resApi.results.forEach((elem) => {
       createPopularShows(
         elem.name,
         elem.poster_path,
@@ -165,17 +161,16 @@ getPopularShows().then((resApi) => {
 });
 
 getTopRatedTv().then((resApi) => {
-    let entries = Object.entries(resApi)[1];
-    entries[1].map((elem) => {
-        createTopRatedShows(
-          elem.name,
-          elem.poster_path,
-          elem.genre_ids,
-          elem.id,
-          elem.vote_average,
-          elem.overview,
-          elem.popularity
-        );
-    });
+  resApi.results.forEach((elem) => {
+      createTopRatedShows(
+        elem.name,
+        elem.poster_path,
+        elem.genre_ids,
+        elem.id,
+        elem.vote_average,
+        elem.overview,
+        elem.popularity
+      );
+  });
 });
 

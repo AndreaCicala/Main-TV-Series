@@ -71,7 +71,7 @@ const getHomePageBg = async () => {
   }
 };
 
-//
+//FETCH CALL FOR DETAILED PAGE BG
 const getSeriesBg = async (id) => {
   const res = await fetch(
     getURL(`tv/${id}`),
@@ -86,4 +86,36 @@ const getSeriesBg = async (id) => {
     return await res.json();
   }
 };
-export { getPopularShows, getTopRatedTv, getTvDetails, getHomePageBg, getSeriesBg};
+
+//FETCH CALL FOR SIMILAR SERIES
+const getRecommendedSeries = async (id) => {
+  const res = await fetch(
+    getURL(`tv/${id}/similar`)+ "&page=1",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (res.status >= 200 && res.status <= 299) {
+    return await res.json();
+  }
+}
+
+const getVideos = async (id) => {
+  const res = await fetch(
+    getURL(`tv/${id}/videos`),
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (res.status >= 200 && res.status <= 299) {
+    return await res.json();
+  }
+}
+
+export { getPopularShows, getTopRatedTv, getTvDetails, getHomePageBg, getSeriesBg, getRecommendedSeries, getVideos};
