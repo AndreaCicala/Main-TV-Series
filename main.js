@@ -1,4 +1,4 @@
-import { getPopularShows, getTopRatedTv } from "./utility.js";
+import { getPopularShows, getTopRatedTv, getHomePageBg } from "./utility.js";
 const q = (selector) => document.querySelector(selector);
 
 //Input Search expand
@@ -89,11 +89,11 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average, pop
     cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
     cardVote.textContent = "Rating: " + vote_average + "/10";
   
-    cardLink.append(cardPoster, cardTitle, cardVote,)
+    cardLink.append(cardPoster, cardTitle, cardVote,);
     cardDiv.append(cardLink);
-    document.querySelector(".top-rated-series").appendChild(cardDiv);;
+    document.querySelector(".top-rated-series").appendChild(cardDiv);
 
-  //ITEMS VISIBILITY ON MOUSE OVER
+//ITEMS VISIBILITY ON MOUSE OVER
   cardDiv.addEventListener("mouseover", () => {
     cardTitle.style.visibility = "visible";
     cardVote.style.visibility = "visible";
@@ -103,6 +103,24 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average, pop
     });
   });
 };
+//REDIRECT TO INFO BUTTON ON HERO IMAGE
+getHomePageBg().then((resApi) => {
+  const createHeroDetail = () => { 
+  const buttonDiv = document.createElement("div")
+  const moreInfo = document.createElement("button");
+  const cardLink = document.createElement("a");
+  cardLink.href = "/tv-series.html?id=" + resApi.id;
+
+  buttonDiv.classList.add("div-button");
+  moreInfo.classList.add("hero-button");
+  moreInfo.textContent = 'More Info'
+
+  cardLink.append(moreInfo);
+  buttonDiv.append(cardLink);
+  document.querySelector(".divhero").appendChild(buttonDiv);
+};
+  createHeroDetail();
+})
 //CARDS SCROLL BEHAVIOUR\\
 q("#slide-right2").addEventListener("click", () => {
   q(".top-rated-series").scrollLeft += getCardsScroll();
@@ -128,6 +146,9 @@ window.onscroll = function () {
 
 // GENERATE HTML
 
+
+
+
 getPopularShows().then((resApi) => {
     let entries = Object.entries(resApi)[1];
     entries[1].map((elem) => {
@@ -143,16 +164,18 @@ getPopularShows().then((resApi) => {
     });
 });
 
-
 getTopRatedTv().then((resApi) => {
     let entries = Object.entries(resApi)[1];
-    entries[1].map((element) => {
+    entries[1].map((elem) => {
         createTopRatedShows(
-        element.name,
-        element.poster_path,
-        element.genre_ids,
-        element.id,
-        element.vote_average
+          elem.name,
+          elem.poster_path,
+          elem.genre_ids,
+          elem.id,
+          elem.vote_average,
+          elem.overview,
+          elem.popularity
         );
     });
 });
+

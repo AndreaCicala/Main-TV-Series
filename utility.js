@@ -53,13 +53,12 @@ const getTvDetails = async (id) => {
   if (res.status >= 200 && res.status <= 299) {
     return await res.json();
   }
-
 };
 
 //FETCH CALL FOR BACKGROUND IMAGE
-const getSeriesImages = async () => {
+const getHomePageBg = async () => {
   const res = await fetch(
-    "https://api.themoviedb.org/3/tv/1429?api_key=f7eae006391996939f7a8ef3e656c4d2&language=en-US&page=1",
+    getURL(`tv/${1429}`),
     {
       method: "GET",
       headers: {
@@ -72,4 +71,19 @@ const getSeriesImages = async () => {
   }
 };
 
-export { getPopularShows, getTopRatedTv, getTvDetails, getSeriesImages};
+//
+const getSeriesBg = async (id) => {
+  const res = await fetch(
+    getURL(`tv/${id}`),
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (res.status >= 200 && res.status <= 299) {
+    return await res.json();
+  }
+};
+export { getPopularShows, getTopRatedTv, getTvDetails, getHomePageBg, getSeriesBg};

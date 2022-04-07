@@ -18,6 +18,13 @@ button{
     border: none;
 }
 
+.logoImg{
+    margin-right: 20px;
+    margin-left: 30px;
+    width: 180px;
+    height: 35px;
+}
+
 .main-header{
     width: 100%;
     height: 50px;
@@ -65,22 +72,23 @@ button{
 .divHero{
     position: absolute;
     width: 100%;
-    height: 100%;
-    filter: blur(6px);
+    height: 150%;
+    filter: blur(8px);
     z-index: -5;
 }
 
 .structure-div{
-    position: fixed;
+    position: absolute;
     width: 45%;
-    height: 80%;
+    height: 85%;
     background-color: #1c1919;
     top: 63%;
     left: 27.5%;
+    border-radius: 8px;
 }
 
 .play-button{
-    position: fixed;
+    position: absolute;
     top: 58%;
     left: 30%;
     transition: all 0.5s ease-out;
@@ -92,7 +100,7 @@ button{
 
 .detail-name{
     color: white;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 28%;
     font-size: 30px;
@@ -100,29 +108,59 @@ button{
     -webkit-text-stroke: 1.2px black
 }
 
-.overview{
-    width: 50%;
+.text-detail{
     color: white;
-    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
     text-align: center;
-    margin-left: 18px;
-    margin-top: 24px;
+    font-weight: 600;
+   
+}
+
+.overview{
+    width: 400px;
+    height: 100px;
+   
+}
+
+.genres{
+    width: 110px;
+    min-height: 100px;
+    height: auto;
+    color: #DDDDDD;
+    border-radius: 8px;
+    background-color: #aaaaaa08;
 }
 
 .average-vote{
-    position: fixed;
-    left: 65%;
-    top: 88.5%;
-    color: rgb(123, 185, 255);
-    font-weight: 600;
-    text-align: right;
-    margin-top: -110px;
+    width: 110px;
+    height: 100px;
+    color: #0074D9;
+    border-radius: 8px;
+    background-color: #aaaaaa08;
+}
+
+.last-episode{
+    height: 100px;
+    width: 110px;
+    color: #DDDDDD;
+    border-radius: 8px;
+    background-color: #aaaaaa08;
 }
 
 .ratings{
-    color: #606060;
-    margin-right: 31px;
-    margin-bottom: -19px;
-    margin-top: -110px;
+    color: #46d369;
 }
 
+.last-episode-text{
+    
+    color: #46d369;
+}
+
+.genres-text{
+    color: #46d369;
+}

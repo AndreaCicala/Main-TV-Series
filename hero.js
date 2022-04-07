@@ -1,14 +1,14 @@
-import {getSeriesImages } from "./utility.js";
+import {getHomePageBg } from "./utility.js";
 const q = (selector) => document.querySelector(selector);
   
-getSeriesImages().then((resApi) => {
+getHomePageBg().then((resApi) => {
     console.log(resApi)
   const createHeroImage = () => {
     const imageDiv = document.createElement("img");
     const heroTitle = document.createElement("h2");
     const blurredDiv = document.createElement("div");
     heroTitle.classList.add("titleHero");
-    imageDiv.classList.add("divHero");
+    imageDiv.classList.add("imgHero");
     blurredDiv.classList.add("blur");
     heroTitle.textContent = resApi.name;
     imageDiv.setAttribute = resApi.id;
