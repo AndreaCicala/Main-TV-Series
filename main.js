@@ -28,7 +28,7 @@ const createPopularShows = (title, poster_path, genre_id, id, vote_average, popu
   tvOverview.textContent = overview;
   tvPopularity.textContent = popularity;
   cardDiv.setAttribute("movie", id);
-  cardLink.href = "/tv-series.html?id=" + id;
+  cardLink.href = "tv-series.html?id=" + id;
   cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
   cardVote.textContent = "Rating: " + vote_average + "/10";
 
@@ -83,7 +83,7 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average, pop
     tvOverview.textContent = overview;
     tvPopularity.textContent = popularity;
     cardDiv.setAttribute("movie", id);
-    cardLink.href = "/tv-series.html?id=" + id;
+    cardLink.href = "tv-series.html?id=" + id;
     cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
     cardVote.textContent = "Rating: " + vote_average + "/10";
   
@@ -108,7 +108,7 @@ getHomePageBg().then((resApi) => {
   const buttonDiv = document.createElement("div")
   const moreInfo = document.createElement("button");
   const cardLink = document.createElement("a");
-  cardLink.href = "/tv-series.html?id=" + resApi.id;
+  cardLink.href = "tv-series.html?id=" + resApi.id;
 
   buttonDiv.classList.add("div-button");
   moreInfo.classList.add("hero-button");

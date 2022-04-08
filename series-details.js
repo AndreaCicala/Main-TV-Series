@@ -85,7 +85,7 @@ getTvDetails(params.id).then((data) => {
       tvOverview.textContent = overview;
       tvPopularity.textContent = popularity;
       cardDiv.setAttribute("movie", id);
-      cardLink.href = "/tv-series.html?id=" + id;
+      cardLink.href = "tv-series.html?id=" + id;
       cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
 
       cardLink.append(cardPoster, cardTitle)
