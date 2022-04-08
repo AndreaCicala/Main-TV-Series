@@ -85,7 +85,7 @@ getTvDetails(params.id).then((data) => {
       tvOverview.textContent = overview;
       tvPopularity.textContent = popularity;
       cardDiv.setAttribute("movie", id);
-      cardLink.href = "/main-tv-series/tv-series.html?id=" + id;
+      cardLink.href = "/tv-series.html?id=" + id;
       cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
 
       cardLink.append(cardPoster, cardTitle)
@@ -112,44 +112,36 @@ getTvDetails(params.id).then((data) => {
       );
     })
   });
-    getVideos(params.id).then((res) => {
-      
-      const createVideos = (name, id, key, type ) => {
-        const youtubeFormatLink = "https://www.youtube.com/embed/"
-        const videoElement = document.createElement("iframe");
-        // console.log(type)
-        videoElement.src = youtubeFormatLink+`${key}?autoplay=1&mute=1`;
-        videoElement.type = ("type=", "video/mp4");
-        videoElement.classList.add("video-element");
 
-        // let videoType = res.results['0'];
-        // console.log(videoType)
-        if (type == 'Trailer' || type == "Featurette"){
-          detailedDiv.append(similarTitles);
-          q(".video-background").append(videoElement);
-          detailOverview.classList.add("overviewOnBackground");
-          detailedDiv.append(detailOverview, overviewText, ratingsDiv )
-        }
-      };
+  const createVideo = (video) => {
+    const youtubeFormatLink = "https://www.youtube.com/embed/"
+    const videoElement = document.createElement("iframe");
+    // console.log(type)
+    videoElement.src = youtubeFormatLink+`${video.key}?autoplay=1&mute=1`;
+    videoElement.type = ("type=", "video/mp4");
+    videoElement.classList.add("video-element");
+
+    detailedDiv.append(similarTitles);
+    q(".video-background").append(videoElement);
+    detailOverview.classList.add("overviewOnBackground");
+    detailedDiv.append(detailOverview, overviewText, ratingsDiv )
+  };
+
+
+    getVideos(params.id).then((data) => {
+      let video = data.results.find((elem) => elem.type === 'Trailer' && elem.official)
       //CHECK FOR MISSING VIDEOS AND REPLACING THEM WITH TV IMAGE
-        if (res.results.length == 0 ){
-          detailedDiv.append(similarTitles);
-          q(".video-background").append(imageDiv, detailName );
-          detailOverview.classList.add("overviewOnBackground");
-          detailName.classList.toggle("detail-name2");
-          detailName.classList.remove("detail-name");
-          detailedDiv.append(detailOverview, overviewText, ratingsDiv);
+      if (video) {
+        createVideo(video)
+      }else{
+        detailedDiv.append(similarTitles);
+        q(".video-background").append(imageDiv, detailName );
+        detailOverview.classList.add("overviewOnBackground");
+        detailName.classList.toggle("detail-name2");
+        detailName.classList.remove("detail-name");
+        detailedDiv.append(detailOverview, overviewText, ratingsDiv);
 
-        }
-
-      res.results.forEach((elem) => {
-        createVideos(
-          elem.name,
-          elem.id,
-          elem.key,
-          elem.type
-        );
-      })
-  })
+      }
+})
 });
 
