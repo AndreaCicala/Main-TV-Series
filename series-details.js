@@ -85,7 +85,7 @@ getTvDetails(params.id).then((data) => {
       tvOverview.textContent = overview;
       tvPopularity.textContent = popularity;
       cardDiv.setAttribute("movie", id);
-      cardLink.href = "/tv-series.html?id=" + id;
+      cardLink.href = "/main-tv-series/tv-series.html?id=" + id;
       cardPoster.src = "https://image.tmdb.org/t/p/original/" + poster_path;
 
       cardLink.append(cardPoster, cardTitle)
@@ -136,12 +136,10 @@ getTvDetails(params.id).then((data) => {
           detailedDiv.append(similarTitles);
           q(".video-background").append(imageDiv, detailName );
           detailOverview.classList.add("overviewOnBackground");
-          detailedDiv.append(detailOverview, overviewText, ratingsDiv);
-          // detailOverview.classList.toggle("overviewOnBackground")
           detailName.classList.toggle("detail-name2");
           detailName.classList.remove("detail-name");
-          // detailedDiv.classList.remove("detailed-series");
-          // detailedDiv.classList.toggle("detailed-series2");
+          detailedDiv.append(detailOverview, overviewText, ratingsDiv);
+
         }
 
       res.results.forEach((elem) => {
