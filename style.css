@@ -524,14 +524,144 @@ body, html {
 
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 375px) {
+
     .search-box{
-        left: 80%;
+        left: 54px;
+        top: 68px;
+        width: 250px;
     }
 
     .background-image .imgHero{
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 500px;
+        object-fit:cover;
     }
 
+    .logoImg{
+        display: none;
+    }
+
+    .main-header{
+        
+        background: none;
+        text-shadow: 0px 0px 6px black;
+    }
+
+    .search-box .search-box__input{
+        font-size: 12px;
+        position: absolute;
+      
+    }
+
+    .search-box.active .search-box__icon {
+        transform: translateX(-314px);
+    }
+    .search-box__icon{
+        top: 0px;
+        left: 290px;
+    }
     
+    .navigation{
+        list-style: none;
+        display: flex;
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navigation li a{
+        font-size: 11px;
+    }
+
+    .aotImg{
+        width:230px;
+        height: 100px;
+        top: 250px;
+    }
+
+    .blur{
+        width: 406px;
+        left: -26px;
+    }
+
+    .popular-seriesh2{
+        font-size: 40px;
+        left: 25px;
+        top: -50px;
+        z-index: 1;
+    }
+
+    .popular-series{
+        width: 465px;
+        height: 360px;
+        top: -100px;
+    }
+
+    .cardImg, .card, .cardImg2, .card2{
+        width: 175px;
+        height: 310px;
+        border-radius: 0;
+    }
+
+    .cardTitle, .cardTitle2{
+        visibility: visible;
+        top: 240px;
+        font-size: 18px;
+        left: 6px;
+    }
+
+    .seriesVote, .seriesVote2{
+        visibility: visible;
+        top: 270px;
+        font-size: 15px;
+    }
+
+    .top-rated-series{
+        width: 465px;
+        height: 360px;
+        top: -100px;
+        margin-bottom: 50px;
+    }
+
+    .top-rated-seriesh2{
+        font-size: 40px;
+        left: 25px;
+        top: -50px;
+        z-index: 1;
+    }
+
+    .hero-button, .play-button{
+        width: 134px;
+        height: 45px;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .wrap-button{
+        width: 370px;
+        height: 100px;
+        left: 0px;
+    }
+
+    .wrap-button a{
+        width: 184px;
+        height: 64px;
+    }
+
+    .slides, .slides2{
+        top: 100px;
+        left: 100px;
+    }
+
+    #slide-right, #slide-right2{
+        left: 405px;
+    }
+
+
+
+    .andreacicala-div{
+        width: 375px;
+        text-align: center;
+    }
+}

@@ -101,6 +101,13 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average, pop
     });
   });
   
+//SCRIPT FOR MEDIAQUERY ITEM VISIBILITY  
+  let queryMobileS = window.matchMedia('(min-width: 375px)');
+    if (queryMobileS == true){
+      cardTitle.style.visibility = "visible";
+      cardVote.style.visibility = "visible";
+    }
+    
 };
 //REDIRECT TO INFO BUTTON ON HERO IMAGE
 getHomePageBg().then((resApi) => {
@@ -136,10 +143,13 @@ window.onscroll = function () {
   myNav.scrollTop = 0;
   if (myNav.scrollTop >= 180 || document.documentElement.scrollTop >= 180) {
     myNav.classList.add("main-header-scrolled");
+    searchIcon.style.visibility = "hidden";
   } else if (myNav.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
     myNav.classList.add("main-header-scrolled");
+    searchIcon.style.visibility = "visible";
   }else {
     myNav.classList.remove("main-header-scrolled");
+
   }
 };
 
