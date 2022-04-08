@@ -103,8 +103,9 @@ body{
     color: white;
     position: absolute;
     top: 78%;
-    left: 1%;
-    font-size: 35px;
+    left: 2%;
+    font-size: 40px;
+    font-style: oblique;
     font-weight: 600;
     -webkit-text-stroke: 2px black;
 }
@@ -203,11 +204,9 @@ body{
     height: 275px;
     padding: 5px;
     cursor: pointer;
-    
 }
   
 .cardImg{
-    border-radius: 2px;
     width: 184px;
     border-radius: 15px;
 }
@@ -320,7 +319,7 @@ body{
 }
 
 .slides:hover{
-    transform: scale(1.5);
+    transform: scale(2.2);
 }
 
 #slide-right {
@@ -339,6 +338,7 @@ body{
     position: absolute;
     top: 58px;
     left: 3px;
+    
 }
 
 .slides2 {
@@ -346,7 +346,7 @@ body{
     width: 0px;
     height: 163px;
     top: 60px;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     outline: none;
     padding: 15px;
@@ -358,12 +358,12 @@ body{
 }
 
 .slides2:hover{
-    transform: scale(1.2);
+    transform: scale(1.6);
 }
 
 #slide-right2 {
     position: sticky;
-    left: 99vw;
+    left: 98vw;
     margin-right: 4px;
 }
 
@@ -373,7 +373,7 @@ body{
     visibility: hidden;
 }
 
-#fa-left2, #fa-left2{
+#fa-left2, #fa-right2{
     position: absolute;
     top: 58px;
     left: 3px;

@@ -105,12 +105,12 @@ const getRecommendedSeries = async (id) => {
 
 const getVideos = async (id) => {
   const res = await fetch(
-    getURL(`tv/${id}/videos`),
+    getURL(`tv/${id}/videos`)+ "append_to_response",
     {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers:{
+        'content-type': 'application/json'},
+      
     }
   );
   if (res.status >= 200 && res.status <= 299) {

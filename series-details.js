@@ -6,7 +6,6 @@ const params = Object.fromEntries(urlSearchParams.entries());
 
 getTvDetails(params.id).then((data) => {
   const detailDiv = document.createElement("div");
-  const structureDiv = document.createElement("div");
   const detailName = document.createElement("h2");
   const detailImg = document.createElement("img");
   const avgVote = document.createElement("p");
@@ -15,18 +14,19 @@ getTvDetails(params.id).then((data) => {
   const genresDetail = document.createElement("p");
   const textDetailsDiv = document.createElement("div");
   const similarTitlesDiv = document.createElement("div");
-  const overviewDiv = document.createElement("div");
+  const ratingsDiv = document.createElement("div");
   const similarTitles = document.createElement("h2");
+  const overviewText = document.createElement("h2");
   const imageDiv = document.createElement("img");
   const detailedDiv = q(".detailed-series");
 
   detailName.textContent = data.name;
+  overviewText.textContent = "Overview:";
   avgVote.innerHTML = `<p class="ratings">${"Ratings:"}</p> ${data.vote_average}`;
   lastEpisode.innerHTML = `<p class="last-episode-text">${"Last Episode: "}</p> ${data.last_air_date}`;
   detailOverview.textContent = data.overview;
   genresDetail.innerHTML = `<p class="genres-text">${"Genres: "}</p>`+ data.genres.map(item => item.name).join(", ");
   similarTitles.textContent = "Similar Titles: "
-  structureDiv.classList.add("structure-div");
   detailDiv.classList.add("detail-div");
   detailName.classList.add("detail-name");
   detailImg.classList.add("detail-img");
@@ -37,15 +37,16 @@ getTvDetails(params.id).then((data) => {
   textDetailsDiv.classList.add("text-detail")
   similarTitlesDiv.classList.add("similar-titles-div");
   similarTitles.classList.add("similar-titles");
-  overviewDiv.classList.add("overview-div");
+  ratingsDiv.classList.add("ratings-div");
+  ratingsDiv.classList.add("ratings-div2");
+  overviewText.classList.add("overview-text");
   imageDiv.classList.add("divHero");
   imageDiv.setAttribute= data.id;
   imageDiv.src = "https://image.tmdb.org/t/p/original/" + data.backdrop_path;
   detailImg.src ="https://image.tmdb.org/t/p/original/" + data.backdrop_path;
-
-  detailedDiv.append(imageDiv, detailName);
   
-
+  ratingsDiv.append(genresDetail, avgVote, lastEpisode)
+  
 //CARDS SCROLL
   const getCardsScroll = () => {
     const cardWidth = 200;
@@ -64,7 +65,7 @@ getTvDetails(params.id).then((data) => {
   });
   
   getRecommendedSeries(params.id).then((data) => {
-    const createRecommendedSeries = (title, poster_path, genre_id, id, popularity, overview) => {
+    const createRecommendedSeries = (title, poster_path, id, popularity, overview) => {
       const cardDiv = document.createElement("div");
       const cardTitle = document.createElement("h3");
       const cardPoster = document.createElement("img");
@@ -78,6 +79,8 @@ getTvDetails(params.id).then((data) => {
       tvOverview.classList.add("overview");
       tvPopularity.classList.add("popularity");
 
+      
+      cardDiv.setAttribute("movie", id);
       cardTitle.textContent = title;
       tvOverview.textContent = overview;
       tvPopularity.textContent = popularity;
@@ -102,13 +105,53 @@ getTvDetails(params.id).then((data) => {
       createRecommendedSeries(
         elem.name,
         elem.poster_path,
-        elem.genre_ids,
         elem.id,
         elem.vote_average,
         elem.overview,
         elem.popularity
-      );console.log(data)
+      );
     })
   });
+    getVideos(params.id).then((res) => {
+      
+      const createVideos = (name, id, key, type ) => {
+        const youtubeFormatLink = "https://www.youtube.com/embed/"
+        const videoElement = document.createElement("iframe");
+        // console.log(type)
+        videoElement.src = youtubeFormatLink+`${key}?autoplay=1&mute=1`;
+        videoElement.type = ("type=", "video/mp4");
+        videoElement.classList.add("video-element");
+
+        // let videoType = res.results['0'];
+        // console.log(videoType)
+        if (type == 'Trailer' || type == "Featurette"){
+          detailedDiv.append(similarTitles);
+          q(".video-background").append(videoElement);
+          detailOverview.classList.add("overviewOnBackground");
+          detailedDiv.append(detailOverview, overviewText, ratingsDiv )
+        }
+      };
+      //CHECK FOR MISSING VIDEOS AND REPLACING THEM WITH TV IMAGE
+        if (res.results.length == 0 ){
+          detailedDiv.append(similarTitles);
+          q(".video-background").append(imageDiv, detailName );
+          detailOverview.classList.add("overviewOnBackground");
+          detailedDiv.append(detailOverview, overviewText, ratingsDiv);
+          // detailOverview.classList.toggle("overviewOnBackground")
+          detailName.classList.toggle("detail-name2");
+          detailName.classList.remove("detail-name");
+          // detailedDiv.classList.remove("detailed-series");
+          // detailedDiv.classList.toggle("detailed-series2");
+        }
+
+      res.results.forEach((elem) => {
+        createVideos(
+          elem.name,
+          elem.id,
+          elem.key,
+          elem.type
+        );
+      })
+  })
 });
 
