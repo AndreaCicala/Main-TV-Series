@@ -105,18 +105,16 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average, pop
 //REDIRECT TO INFO BUTTON ON HERO IMAGE
 getHomePageBg().then((resApi) => {
   const createHeroDetail = () => { 
-  const buttonDiv = document.createElement("div")
   const moreInfo = document.createElement("button");
   const cardLink = document.createElement("a");
-  cardLink.href = "tv-series.html?id=" + resApi.id;
+  cardLink.href = "/tv-series.html?id=" + resApi.id;
 
-  buttonDiv.classList.add("div-button");
   moreInfo.classList.add("hero-button");
-  moreInfo.textContent = 'More Info'
+  moreInfo.textContent = 'More Info';
 
   cardLink.append(moreInfo);
-  buttonDiv.append(cardLink);
-  document.querySelector(".divhero").appendChild(buttonDiv);
+
+  document.querySelector(".wrap-button").append(cardLink);
 };
   createHeroDetail();
 })
