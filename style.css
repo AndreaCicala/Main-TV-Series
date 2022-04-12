@@ -19,7 +19,6 @@ body, html {
 
 .background-image .imgHero{
     width: 100%;
-    height: 1%;
     z-index: -5;
 }
 
@@ -71,6 +70,7 @@ body, html {
     position: fixed;
     width: 250px;
     left: 85%;
+    top: 10px;
 }
   
 .search-box .search-box__input {
@@ -78,7 +78,7 @@ body, html {
     background: rgba(0, 0, 0, 0.85);
     border: solid 1px rgba(255, 255, 255, 0.85);
     box-sizing: border-box;
-    padding: 7px 14px 7px 40px;
+    padding: 7px 10px 5px 34px;
     font-size: 16px;
     color: #fff;
     opacity: 0;
@@ -94,6 +94,10 @@ body, html {
     right: 10px;
     transition: ease transform 0.5s;
     transition-delay: 30ms;
+}
+
+.active-box{
+    display: none;
 }
   
 .search-box.active .search-box__icon {
@@ -130,7 +134,7 @@ body, html {
     height: 10vh;
     background-color: rgb(28, 25, 25);
     position: absolute;
-    left: -55px;
+    left: -40px;
     margin-top: -65px;
     filter: blur(4px);
     z-index: 1;
@@ -228,7 +232,7 @@ body, html {
 .popular-series{
     display: flex;
     flex-direction: row;
-    gap: 45px;
+    gap: 25px;
     position: relative;
     height:450px;
     left: -3.1%;
@@ -255,7 +259,7 @@ body, html {
 
 .card:focus,
 .card:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
     transform: skewX(10);
     z-index: 1;
 }
@@ -283,11 +287,12 @@ body, html {
     transition: all 0.5 ease-out;
 }
 
-.slides {
-    background: transparent;
+.slides, .slides2 {
+    background-color: #1c19193a;
     width: 0px;
-    height: 163px;
-    top: 115px;
+    height: 317px;
+    top: 49px;
+    left: 98.6%;
     color: rgb(255, 255, 255);
     border: none;
     outline: none;
@@ -299,18 +304,19 @@ body, html {
     z-index: 2;
 }  
 
-.slides:hover{
+#fa-left:hover,
+#fa-right:hover,
+#fa-left2:hover,
+#fa-right2:hover{
     transform: scale(1.5);
-    color: rgb(255, 0, 0);
 }
 
-#slide-right {
+#slide-right, #slide-right2 {
     position: sticky;
-    left: 98.6%;
     margin-right: 4px;
 }
 
-#slide-left{
+#slide-left, #slide-left2{
     position: sticky;
     left: 110px;
     visibility: hidden;
@@ -318,8 +324,9 @@ body, html {
 
 #fa-left, #fa-right{
     position: absolute;
-    top: 58px;
-    left: 3px;
+    top: 118px;
+    left: 5px;
+    transition: transform 500ms ease 0s
 }
   
 .top-rated-seriesh2{
@@ -337,7 +344,7 @@ body, html {
 .top-rated-series{
     display: flex;
     flex-direction: row;
-    gap: 45px;
+    gap: 25px;
     position: relative;
     height:450px;
     left: -3.1%;
@@ -365,7 +372,7 @@ body, html {
 
 .card2:focus,
 .card2:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
     transform: skewX(10);
     z-index: 1;
 }
@@ -393,43 +400,11 @@ body, html {
     transition: all 0.5 ease-out;
 }
 
-.slides2 {
-    background: transparent;
-    width: 0px;
-    height: 163px;
-    top: 115px;
-    color: rgb(255, 255, 255);
-    border: none;
-    outline: none;
-    padding: 15px;
-    cursor: pointer;
-    transition: transform 500ms ease 0s;
-    font-size: 60px;
-    text-align: center;
-    z-index: 2;
-}  
-
-.slides2:hover{
-    transform: scale(1.5);
-    color: rgb(255, 0, 0);
-}
-
-#slide-right2 {
-    position: sticky;
-    left: 98.6%;
-    margin-right: 4px;
-}
-
-#slide-left2{
-    position: sticky;
-    left: 110px;
-    visibility: hidden;
-}
-
 #fa-left2, #fa-right2{
     position: absolute;
-    top: 58px;
+    top: 118px;
     left: 3px;
+    transition: transform 500ms ease 0s
 }
 
 .social-link{
@@ -533,9 +508,8 @@ body, html {
     }
 
     .background-image .imgHero{
-        width: 100%;
-        height: 500px;
-        object-fit:cover;
+        width: 520px;
+        height: 365px;
     }
 
     .logoImg{
@@ -543,7 +517,6 @@ body, html {
     }
 
     .main-header{
-        
         background: none;
         text-shadow: 0px 0px 6px black;
     }
@@ -551,12 +524,12 @@ body, html {
     .search-box .search-box__input{
         font-size: 12px;
         position: absolute;
-      
     }
 
     .search-box.active .search-box__icon {
         transform: translateX(-314px);
     }
+
     .search-box__icon{
         top: 0px;
         left: 290px;
@@ -565,9 +538,7 @@ body, html {
     .navigation{
         list-style: none;
         display: flex;
-        padding: 5px;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 19px;
     }
 
     .navigation li a{
@@ -593,13 +564,13 @@ body, html {
     }
 
     .popular-series{
-        width: 465px;
+        width: 450px;
         height: 360px;
         top: -100px;
     }
 
     .cardImg, .card, .cardImg2, .card2{
-        width: 175px;
+        width: 167px;
         height: 310px;
         border-radius: 0;
     }
@@ -641,12 +612,13 @@ body, html {
     .wrap-button{
         width: 370px;
         height: 100px;
-        left: 0px;
+        left: 10px;
+        top: 250px;
     }
 
     .wrap-button a{
-        width: 184px;
         height: 64px;
+        margin-left: 10px;
     }
 
     .slides, .slides2{
@@ -654,14 +626,18 @@ body, html {
         left: 100px;
     }
 
-    #slide-right, #slide-right2{
-        left: 405px;
+    #slide-left, #slide-left2{
+        background-color: transparent;
     }
 
-
+   #slide-right, #slide-right2{
+        left: 405px;
+        background-color: transparent;
+    }
 
     .andreacicala-div{
-        width: 375px;
+        width: 100%;
         text-align: center;
+        margin: 10px 20px;
     }
 }

@@ -102,7 +102,7 @@ const getRecommendedSeries = async (id) => {
     return await res.json();
   }
 }
-
+//FETCH CALL FOR TRAILER VIDEOS
 const getVideos = async (id) => {
   const res = await fetch(
     getURL(`tv/${id}/videos`)+ "append_to_response",

@@ -1,4 +1,5 @@
 import { getPopularShows, getTopRatedTv, getHomePageBg } from "./utility.js";
+
 const q = (selector) => document.querySelector(selector);
 
 //Input Search expand
@@ -48,7 +49,7 @@ const createPopularShows = (title, poster_path, genre_id, id, vote_average, popu
 };
 //CARDS SCROLL BEHAVIOR\\
 const getCardsScroll = () => {
-    const cardWidth = 200;
+    const cardWidth = 300;
     let divPopSeries = q(".popular-series");
     let numberVisibleCard = Math.floor(divPopSeries.offsetWidth / cardWidth);
     return numberVisibleCard * cardWidth;
@@ -100,15 +101,8 @@ const createTopRatedShows = (title, poster_path, genre_id, id, vote_average, pop
       cardVote.style.visibility = "hidden";
     });
   });
-  
-//SCRIPT FOR MEDIAQUERY ITEM VISIBILITY  
-  let queryMobileS = window.matchMedia('(min-width: 375px)');
-    if (queryMobileS == true){
-      cardTitle.style.visibility = "visible";
-      cardVote.style.visibility = "visible";
-    }
-    
 };
+
 //REDIRECT TO INFO BUTTON ON HERO IMAGE
 getHomePageBg().then((resApi) => {
   const createHeroDetail = () => { 
@@ -124,7 +118,8 @@ getHomePageBg().then((resApi) => {
   document.querySelector(".wrap-button").append(cardLink);
 };
   createHeroDetail();
-})
+});
+
 //CARDS SCROLL BEHAVIOUR\\
 q("#slide-right2").addEventListener("click", () => {
   q(".top-rated-series").scrollLeft += getCardsScroll();
@@ -138,18 +133,18 @@ q("#slide-right2").addEventListener("click", () => {
 
 //HEADER BEHAVIOUR\\
 let myNav = q(".main-header");
+let mySearchBox = q(".search-box");
 window.onscroll = function () {
   "use strict";
   myNav.scrollTop = 0;
   if (myNav.scrollTop >= 180 || document.documentElement.scrollTop >= 180) {
     myNav.classList.add("main-header-scrolled");
-    searchIcon.style.visibility = "hidden";
-  } else if (myNav.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+  } else if (myNav.scrollTop || 50 && document.documentElement.scrollTop >= 50) {
     myNav.classList.add("main-header-scrolled");
-    searchIcon.style.visibility = "visible";
+    mySearchBox.classList.add("active-box")
   }else {
     myNav.classList.remove("main-header-scrolled");
-
+    mySearchBox.classList.remove("active-box")
   }
 };
 

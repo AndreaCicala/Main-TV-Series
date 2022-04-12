@@ -2,6 +2,7 @@ import {getHomePageBg } from "./utility.js";
 const q = (selector) => document.querySelector(selector);
   
 getHomePageBg().then((resApi) => {
+  console.log(resApi)
   const createHeroImage = () => {
     const imageSrc = document.createElement("img");
     const heroTitle = document.createElement("h2");
